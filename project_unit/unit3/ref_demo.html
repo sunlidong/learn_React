@@ -2,18 +2,47 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>07_component_refs</title>
+  <title>04_component_props</title>
 </head>
 <body>
-<br>
-  <div id="div01"></div>
 
-  <script type="text/javascript" src="../../js/react.development.js"></script>
-  <script type="text/javascript" src="../../js/react-dom.development.js"></script>
-  <script type="text/javascript" src="../../js/prop-types.js"></script>
-  <script type="text/javascript" src="../../js/babel.min.js"></script>
-  <script type="text/bable">
-    class MyComponent extends React.
- </script>
+<div id="div1"></div>
+<hr>
+<div id="div2"></div>
+
+<script type="text/javascript" src="../../js/react.development.js"></script>
+<script type="text/javascript" src="../../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../../js/prop-types.js"></script>
+<script type="text/javascript" src="../../js/babel.min.js"></script>
+    <script type="text/babel">
+        // new 
+        class MyComponent extends React.Component {
+            constructor(props){
+                super(props)
+                this.handleClick = this.handleClick.bind(this)
+            }
+        
+            handleClick(){
+                alert(this.msgInput.value)
+            }
+
+            handleBlur(event){
+                alert(event.target.value)   
+            }
+            render () {
+                return (
+                    <div>
+                    <input type="text" ref={input => this.msgInput = input}/>{' '}
+                    <button onClick={this.handleClick}>提示输入数据</button>
+                    <input type="text" placeholder="失去焦点数据" onBlur={this.handleBlur}/>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<MyComponent />,document.getElementById('div1'))
+
+        // onBlur  不要写反了
+    </script>
 </body>
 </html>
+
