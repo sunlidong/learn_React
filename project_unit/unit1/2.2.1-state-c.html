@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>03_basic</title>
+</head>
+<body>
+
+    <!-- div     -->
+  <div id="div1"></div>
+  <div id="div2"></div>
+
+     <!-- 引入     -->
+  <script type="text/javascript" src="../../js/react.development.js"></script>
+  <script type="text/javascript" src="../../js/react-dom.development.js"></script>
+  <script type="text/javascript" src="../../js/babel.min.js"></script>
+ 
+  <script type="text/babel">
+
+    class Like  extends React.Component {
+        constructor(props){
+            super(props)
+            
+            this.state = {
+                isLike:false
+            }
+            
+            this.change = this.change.bind(this)
+        }
+        change(){
+            // debugger;
+            this.setState ({
+                isLike:!this.state.isLike
+            })
+        }
+
+        render(){
+            // debugger;
+            var text = !this.state.isLike?'11111111111' : '222222222222'
+            return <h1 onClick={this.change}>{text}</h1>
+        }
+    }
+
+    //   change  不是等于  
+
+    //
+    ReactDOM.render(<Like/>,document.getElementById('div2'))
+  </script>
+ 
+</body>
+</html>
