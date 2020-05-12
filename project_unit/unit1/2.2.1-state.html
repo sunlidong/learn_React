@@ -29,8 +29,7 @@
         this.change = this.change.bind(this)
       }
         change(){
-          this.setState(
-            {
+          this.setState({
               isLike:!this.state.isLike
             }
           )
@@ -41,7 +40,7 @@
       render(){
         debugger;
         console.log("render")
-        const text = !this.state.isLike?'你喜欢我' : '我喜欢你'
+        var text = !this.state.isLike?'你喜欢我' : '我喜欢你'
         // return <h1>state1</h1>
         return <h1 onClick={this.change}>{text}</h1>
       }
