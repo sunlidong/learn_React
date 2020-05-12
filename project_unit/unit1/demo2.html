@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>01_HelloWorld</title>
+</head>
+<body>
+
+    <!-- div     -->
+  <div id="div1"></div>
+  <div id="div2"></div>
+
+     <!-- 引入     -->
+  <script type="text/javascript" src="../../js/react.development.js"></script>
+  <script type="text/javascript" src="../../js/react-dom.development.js"></script>
+  <script type="text/javascript" src="../../js/babel.min.js"></script>
+ 
+ 
+     <!-- 虚拟DOM      -->
+    <script type="text/babel">
+
+        let text1 = "aaBCde"
+        let text2 = "aaBCdedaaBCdedaaBCded"
+        //  new 
+        var dom1 = <h1>{text1.toLowerCase()}</h1>
+        var dom2 = <h1>{text2.toUpperCase()}</h1>
+
+        //  xuan
+
+        ReactDOM.render(dom1,document.getElementById('div1'))
+        ReactDOM.render(dom2,document.getElementById('div2'))
+        // ReactDOM.render(vDOM2, document.getElementById('test2'))
+    </script>
+</body>
+</html>
