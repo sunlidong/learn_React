@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>01_HelloWorld</title>
+</head>
+<body>
+  <div id="div1"></div>
+
+  <script type="text/javascript" src="../../js/react.development.js"></script>
+  <script type="text/javascript" src="../../js/react-dom.development.js"></script>
+  <script type="text/javascript" src="../../js/babel.min.js"></script>
+ 
+ 
+    <script type="text/babel">
+        // 创建虚拟dom
+        var  dom = <h1>react 11</h1>
+
+        //  渲染虚拟dom
+        ReactDOM.render(dom,document.getElementById('div1'))
+    </script>
+</body>
+</html>
