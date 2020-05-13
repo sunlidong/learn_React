@@ -18,6 +18,8 @@ class App extends React.Component{
         setTimeout(() => {
             const comments = [
                 {
+
+                    
                     username:"Tom",
                     content:"ReactJS",
                     id:Date.now()
