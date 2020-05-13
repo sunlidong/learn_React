@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>03_basic</title>
+</head>
+<body>
+
+    <!-- div     -->
+  <div id="div1"></div>
+  <div id="div2"></div>
+
+     <!-- 引入     -->
+  <script type="text/javascript" src="../../js/react.development.js"></script>
+  <script type="text/javascript" src="../../js/react-dom.development.js"></script>
+  <script type="text/javascript" src="../../js/babel.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bootcss.com/axios/0.17.1/axios.min.js"></script>
+
+  <script type="text/babel">
+    // 
+    function ListItem({id,name,age}){
+        return <li>{id}--{name}--{age}--<input type="text"/></li>
+    }
+
+    //
+    class PersonList extends React.Component{
+        constructor(props){
+            super(props)
+            this.state = {
+                persons:[
+                    {id:1,name:'tom',age:12},
+                    {id:2,name:'kack',age:18}
+                ]
+            }
+            this.update = this.update.bind(this)
+        }
+        update(){
+            let persons = this.state.persons
+            persons.unshift({id:3,name:'Bob',age:14})
+            this.setState({persons})
+        }
+
+        render(){
+            const persons = this.state.persons
+            const listItems = persons.map((person,index) => 
+            <ListItem key={person.id} {...person}/>
+            )
+            const listItem2 = persons.map((person,index)=>
+            <ListItem key={index} {...person}/>
+            )
+
+            return(
+                <div>
+                <h2>使用ID 作为key</h2>
+                <ul>{listItems}</ul>
+                <h2>使用 Index 作为key </h2>
+                <ul>{listItem2}</ul>
+                <button onClick={this.update}>首位添加一个人</button>
+                </div>
+            )
+        }
+    }
+
+
+  // xuan 
+  ReactDOM.render(
+    <PersonList/>,
+    document.getElementById('div1')
+  )
+  </script>
+ 
+</body>
+</html>
